@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Групповой идентификатор проекта -->
+    <groupId>itk.academy.orekhov</groupId>
+
+    <!-- Уникальный идентификатор артефакта проекта -->
+    <artifactId>GeometryLibrary</artifactId>
+
+    <!-- Версия проекта. Формат SNAPSHOT указывает на промежуточную, нестабильную версию -->
+    <version>2.4.8</version>
+
+    <!-- Тип упаковки проекта. POM указывает, что данный проект является родительским для модулей -->
+    <packaging>pom</packaging>
+
+    <!-- Подключение модулей проекта -->
+    <modules>
+        <module>GeometryLibrary-2D</module> <!-- Модуль для работы с двумерной геометрией -->
+        <module>GeometryUtils</module> <!-- Модуль с утилитами для работы с геометрией -->
+        <module>ThreeDimensionalShapes</module> <!-- Модуль для работы с трехмерными фигурами -->
+    </modules>
+
+    <!-- Настройки свойств проекта -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Используемая версия Java -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Целевая версия Java -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Кодировка проекта -->
+    </properties>
+
+    <!-- Настройки сборки проекта -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Плагин для компиляции кода -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+                <!-- Плагин для установки артефакта в локальный репозиторий -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- Лицензия проекта -->
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- Информация о разработчике проекта -->
+    <developers>
+        <developer>
+            <id>orekhov</id> <!-- Уникальный идентификатор разработчика -->
+            <name>Orekhov</name> <!-- Имя разработчика -->
+        </developer>
+    </developers>
+
+    <!-- Зависимости для дочерних модулей, у которых могут быть разные версии -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Пример зависимости для GeometryLibrary-2D -->
+            <dependency>
+                <groupId>itk.academy.orekhov</groupId>
+                <artifactId>GeometryLibrary-2D</artifactId>
+                <version>1.1.1</version> <!-- Версия может быть указана отдельно для каждого модуля -->
+            </dependency>
+
+            <!-- Пример зависимости для GeometryUtils -->
+            <dependency>
+                <groupId>itk.academy.orekhov</groupId>
+                <artifactId>GeometryUtils</artifactId>
+                <version>1.1.2</version> <!-- Версия может быть указана отдельно для каждого модуля -->
+            </dependency>
+
+            <!-- Пример зависимости для ThreeDimensionalShapes -->
+            <dependency>
+                <groupId>itk.academy.orekhov</groupId>
+                <artifactId>ThreeDimensionalShapes</artifactId>
+                <version>1.2.3</version> <!-- Версия может быть указана отдельно для каждого модуля -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
